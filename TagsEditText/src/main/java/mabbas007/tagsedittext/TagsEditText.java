@@ -12,12 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Spannable;
@@ -31,9 +25,15 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,7 +48,7 @@ import mabbas007.tagsedittext.utils.ResourceUtils;
  * Needs a lot of work
  * BETA
  */
-public class TagsEditText extends AutoCompleteTextView {
+public class TagsEditText extends androidx.appcompat.widget.AppCompatAutoCompleteTextView {
 
     public static final String NEW_LINE = "\n";
 
@@ -111,7 +111,7 @@ public class TagsEditText extends AutoCompleteTextView {
         }
     };
 
-    public List<String> getTags(){
+    public List<String> getTags() {
         return convertTagSpanToList(mTagSpans);
     }
 
@@ -132,12 +132,6 @@ public class TagsEditText extends AutoCompleteTextView {
     public TagsEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs, defStyleAttr, 0);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public TagsEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
